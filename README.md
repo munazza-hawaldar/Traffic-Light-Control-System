@@ -31,7 +31,7 @@ This project simulates a single traffic signal. The Arduino switches three LEDs 
 | Red LED | 1 |
 | Yellow LED | 1 |
 | Green LED | 1 |
-| Resistor (for the LEDs) | as used on the breadboard |
+| 220 Ω resistor (current limiting for the LEDs) | as used on the breadboard |
 | Breadboard | 1 |
 | Jumper wires | as needed |
 | USB cable (power and programming) | 1 |
