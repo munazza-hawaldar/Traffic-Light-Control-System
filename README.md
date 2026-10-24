@@ -93,4 +93,4 @@ Traffic-Light-Control-System/
 
 **Munazza Hawaldar**
 E&TC Diploma, Government Polytechnic, Solapur (2026)
-[LinkedIn](https://www.linkedin.com/in/munazza-hawaldar-644b0041a/) · [Portfolio](https://sites.google.com/view/munazzahawaldar-portfolio/home)
+[LinkedIn](https://www.linkedin.com/in/munazza-hawaldar-644b0041a/) · [Portfolio](https://whimsical-strudel-0f2465.netlify.app/)
