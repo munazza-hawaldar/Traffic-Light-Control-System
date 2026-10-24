@@ -1,19 +1,19 @@
 /*
-  Traffic Light Control System
-  Board : Arduino Uno
-  LEDs  : Red, Yellow, Green (single signal)
-  Timing: each light stays ON for 2 seconds
+  Traffic Light Control System - Arduino Uno
 
-  Sequence: RED -> GREEN -> YELLOW -> RED ...
+  One traffic signal with three LEDs (red, yellow, green).
+  Each LED stays on for 2 seconds, then the next one lights up.
 
-  Change the pin numbers below to match your wiring.
+  Sequence: RED -> GREEN -> YELLOW -> RED -> ...
+
+  Change the pin numbers below if your LEDs are wired to different pins.
 */
 
-const int RED_PIN    = 8;
-const int YELLOW_PIN = 9;
-const int GREEN_PIN  = 10;
+const int RED_PIN    = 2;
+const int YELLOW_PIN = 3;
+const int GREEN_PIN  = 4;
 
-const unsigned long LIGHT_TIME_MS = 2000;  // 2 seconds per light
+const unsigned long LIGHT_TIME = 2000;  // 2 seconds per light (milliseconds)
 
 void setup() {
   pinMode(RED_PIN, OUTPUT);
@@ -21,18 +21,17 @@ void setup() {
   pinMode(GREEN_PIN, OUTPUT);
 }
 
-// Turn exactly one light ON for LIGHT_TIME_MS, all others OFF
+// Turn on one light and switch the other two off
 void showLight(int pin) {
   digitalWrite(RED_PIN, LOW);
   digitalWrite(YELLOW_PIN, LOW);
   digitalWrite(GREEN_PIN, LOW);
-
   digitalWrite(pin, HIGH);
-  delay(LIGHT_TIME_MS);
+  delay(LIGHT_TIME);
 }
 
 void loop() {
-  showLight(RED_PIN);
-  showLight(GREEN_PIN);
-  showLight(YELLOW_PIN);
+  showLight(RED_PIN);     // Stop
+  showLight(GREEN_PIN);   // Go
+  showLight(YELLOW_PIN);  // Get ready to stop
 }

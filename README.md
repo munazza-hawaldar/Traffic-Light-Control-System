@@ -1,78 +1,93 @@
 # Traffic Light Control System
 
 ![Arduino](https://img.shields.io/badge/Arduino_Uno-00979D?style=flat-square&logo=arduino&logoColor=white)
-![C++](https://img.shields.io/badge/Arduino_C-00599C?style=flat-square&logo=cplusplus&logoColor=white)
+![C++](https://img.shields.io/badge/Embedded_C-00599C?style=flat-square&logo=c&logoColor=white)
 ![Diploma Project](https://img.shields.io/badge/Diploma-Academic_Project-166534?style=flat-square)
 
-An Arduino-based automated traffic light controller. Red, yellow and green LEDs switch in a fixed sequence, the way a single road signal works.
+An Arduino Uno based traffic signal that cycles through red, green and yellow lights automatically, 2 seconds each.
 
-**Institute:** Government Polytechnic, Solapur · **Branch:** Electronics & Telecommunication Engineering
+<p align="center">
+  <img src="images/circuit.jpg" width="55%" alt="Arduino Uno connected to a breadboard with red, yellow and green LEDs"/>
+  <br/><i>The working circuit: Arduino Uno, breadboard and three LEDs</i>
+</p>
 
 ---
 
 ## 📌 Overview
 
-The project uses an **Arduino Uno** to control one traffic signal made of three LEDs (red, yellow, green). Each light stays on for **2 seconds** and the cycle repeats automatically, with no manual control.
+This project simulates a single traffic signal. The Arduino switches three LEDs on and off in a fixed sequence, so each light stays on for 2 seconds before the next one turns on. It is a basic example of digital output control and timing on a microcontroller.
 
 ## ✨ Features
 
-- Single traffic signal with red, yellow and green LEDs
-- Fixed sequence, repeating automatically
-- 2 seconds per light
-- Simple, low-cost build that is easy to extend
+- Automatic red → green → yellow sequence that repeats continuously
+- 2 seconds for each light
+- Simple code that is easy to change (timing and pins are set at the top of the sketch)
 
 ## 🧰 Components
 
 | Component | Quantity |
 |---|---|
 | Arduino Uno | 1 |
-| LED (red) | 1 |
-| LED (yellow) | 1 |
-| LED (green) | 1 |
-| Current-limiting resistors (typically 220 Ω) | 3 |
-| Breadboard and jumper wires | as needed |
+| Red LED | 1 |
+| Yellow LED | 1 |
+| Green LED | 1 |
+| Resistor (for the LEDs) | as used on the breadboard |
+| Breadboard | 1 |
+| Jumper wires | as needed |
+| USB cable (power and programming) | 1 |
 
-## 🔌 Circuit Connections
+## 🔌 Connections
 
-The sample code uses these pins. If your wiring is different, change the pin numbers at the top of the sketch.
+| LED | Arduino pin |
+|---|---|
+| Red | D2 |
+| Yellow | D3 |
+| Green | D4 |
+| LED cathodes (short leg) | GND, through a resistor |
 
-| LED | Arduino pin | Connection |
-|---|---|---|
-| Red | D8 | Pin → resistor → LED anode (+), LED cathode (−) → GND |
-| Yellow | D9 | Pin → resistor → LED anode (+), LED cathode (−) → GND |
-| Green | D10 | Pin → resistor → LED anode (+), LED cathode (−) → GND |
+If your wiring uses different pins, change `RED_PIN`, `YELLOW_PIN` and `GREEN_PIN` at the top of the sketch.
 
 ## ⚙️ How It Works
 
+1. The Arduino sets pins D2, D3 and D4 as outputs.
+2. Red turns on for 2 seconds, with the other two LEDs off.
+3. Green turns on for 2 seconds.
+4. Yellow turns on for 2 seconds.
+5. The cycle repeats forever.
+
 ```mermaid
 flowchart LR
-    A([Power on]) --> B[RED ON · 2 s]
-    B --> C[GREEN ON · 2 s]
-    C --> D[YELLOW ON · 2 s]
+    A([Power on]) --> B[Red ON - 2 s]
+    B --> C[Green ON - 2 s]
+    C --> D[Yellow ON - 2 s]
     D --> B
 ```
 
-1. The Arduino sets the three LED pins as outputs.
-2. In a loop, it turns on one light, keeps the other two off, and waits 2 seconds.
-3. It moves to the next light in the sequence: red → green → yellow → red.
+## 🚀 How to Run
 
-## 💻 Code
+1. Build the circuit as in the photo and the connection table above.
+2. Open `code/traffic_light/traffic_light.ino` in the Arduino IDE.
+3. Select **Tools → Board → Arduino Uno** and the correct port.
+4. Click **Upload**. The lights start cycling.
 
-Sketch: [`code/traffic_light/traffic_light.ino`](code/traffic_light/traffic_light.ino)
+## 📁 Project Structure
 
-To run it:
-1. Open the sketch in the Arduino IDE.
-2. Select **Board: Arduino Uno** and the correct port.
-3. Click **Upload**.
-
-> The sketch in this repository is a clean reference version of the sequence described above. Adjust the pins to match your circuit.
+```
+Traffic-Light-Control-System/
+├── code/
+│   └── traffic_light/
+│       └── traffic_light.ino
+├── images/
+│   └── circuit.jpg
+└── README.md
+```
 
 ## 🔮 Possible Improvements
 
-- Four-way junction with two signal sets
-- Pedestrian push button
-- Countdown display
-- Adjustable timing with a potentiometer
+- Add a pedestrian push button
+- Build a four-way junction with 12 LEDs
+- Use a timer interrupt instead of `delay()`
+- Add a countdown display
 
 ## 👩‍💻 Author
 
