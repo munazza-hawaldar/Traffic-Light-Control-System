@@ -2,6 +2,7 @@
 
 ![Arduino](https://img.shields.io/badge/Arduino_Uno-00979D?style=flat-square&logo=arduino&logoColor=white)
 ![C++](https://img.shields.io/badge/Embedded_C-00599C?style=flat-square&logo=c&logoColor=white)
+[![Portfolio](https://img.shields.io/badge/Portfolio-Munazza_Hawaldar-FF79C6?style=flat-square&logo=googlechrome&logoColor=white)](https://whimsical-strudel-0f2465.netlify.app/)
 ![Diploma Project](https://img.shields.io/badge/Diploma-Academic_Project-166534?style=flat-square)
 
 An Arduino Uno based traffic signal that cycles through red, green and yellow lights automatically, 2 seconds each.
